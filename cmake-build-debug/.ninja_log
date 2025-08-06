@@ -1,0 +1,14 @@
+# ninja log v6
+3	218	1754512302449554672	CMakeFiles/Calculator.dir/src/main.c.o	97c4a28a4b55cca4
+3	205	1754512359960567647	CMakeFiles/Calculator.dir/src/parser/parser.c.o	2b76650b2588d004
+4	201	1754512448898497994	CMakeFiles/Calculator.dir/src/parser/parser.c.o	2b76650b2588d004
+5	202	1754512448899226392	CMakeFiles/Calculator.dir/src/context/calculation_context.c.o	a1966619dd5d0025
+202	311	1754512449096194219	Calculator	22dcfcb39edd6d29
+3	60	1754512485710828175	CMakeFiles/Calculator.dir/src/main.c.o	97c4a28a4b55cca4
+60	116	1754512485767986223	Calculator	22dcfcb39edd6d29
+6	253	1754514604009898846	CMakeFiles/Calculator.dir/src/main.c.o	97c4a28a4b55cca4
+3	221	1754514639988535105	CMakeFiles/Calculator.dir/src/parser/parser.c.o	2b76650b2588d004
+4	210	1754514714731984582	CMakeFiles/Calculator.dir/src/context/calculation_context.c.o	a1966619dd5d0025
+211	274	1754514714938499011	Calculator	22dcfcb39edd6d29
+4	70	1754514737089380661	CMakeFiles/Calculator.dir/src/main.c.o	97c4a28a4b55cca4
+70	133	1754514737155826495	Calculator	22dcfcb39edd6d29
