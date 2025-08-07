@@ -67,6 +67,12 @@ build CMakeFiles/Calculator.dir/src/context/calculation_context.c.o: C_COMPILER_
   OBJECT_DIR = CMakeFiles/Calculator.dir
   OBJECT_FILE_DIR = CMakeFiles/Calculator.dir/src/context
 
+build CMakeFiles/Calculator.dir/src/token/token.c.o: C_COMPILER__Calculator_unscanned_Debug /Users/christopher/CLionProjects/Calculator/src/token/token.c || cmake_object_order_depends_target_Calculator
+  DEP_FILE = CMakeFiles/Calculator.dir/src/token/token.c.o.d
+  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/Calculator.dir
+  OBJECT_FILE_DIR = CMakeFiles/Calculator.dir/src/token
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Calculator
@@ -75,7 +81,7 @@ build CMakeFiles/Calculator.dir/src/context/calculation_context.c.o: C_COMPILER_
 #############################################
 # Link the executable Calculator
 
-build Calculator: C_EXECUTABLE_LINKER__Calculator_Debug CMakeFiles/Calculator.dir/src/main.c.o CMakeFiles/Calculator.dir/src/parser/parser.c.o CMakeFiles/Calculator.dir/src/context/calculation_context.c.o
+build Calculator: C_EXECUTABLE_LINKER__Calculator_Debug CMakeFiles/Calculator.dir/src/main.c.o CMakeFiles/Calculator.dir/src/parser/parser.c.o CMakeFiles/Calculator.dir/src/context/calculation_context.c.o CMakeFiles/Calculator.dir/src/token/token.c.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   OBJECT_DIR = CMakeFiles/Calculator.dir
   POST_BUILD = :

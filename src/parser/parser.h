@@ -4,7 +4,8 @@
 
 #ifndef PARSER_H
 #define PARSER_H
+#include <stdbool.h>
 
-double parse(char* in);
+bool parse(const char *in, double *out);
 
 #endif //PARSER_H

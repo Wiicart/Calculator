@@ -5,6 +5,7 @@
 #include "calculation_context.h"
 
 #include <math.h>
+#include <stddef.h>
 
 CalculationContext calc_context_new(double first, double second, char operator) {
     CalculationContext ctx = {first, second, operator};
