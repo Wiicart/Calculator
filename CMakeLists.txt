@@ -8,5 +8,5 @@ add_executable(Calculator src/main.c
         src/parser/parser.c
         src/context/calculation_context.h
         src/context/calculation_context.c
-        src/token/Token.h
+        src/token/token.h
         src/token/token.c)
