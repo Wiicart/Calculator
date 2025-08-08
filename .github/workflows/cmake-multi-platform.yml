@@ -30,7 +30,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set build output directory
-        run: echo "BUILD_DIR=${{ github.workspace }}/build" >> "$GITHUB_ENV"
+        run: echo "BUILD_DIR=${{ github.workspace }}/build" >> $GITHUB_ENV
+        shell: bash
 
       - name: Configure CMake
         run: >
