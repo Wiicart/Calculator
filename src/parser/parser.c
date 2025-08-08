@@ -6,6 +6,7 @@
 
 #include <ctype.h>
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -19,19 +20,30 @@ bool is_operator_char(const char in);
 bool parse(const char *in, double *out) {
     char *calc = remove_spaces(in);
 
-    const int len = strlen(calc);
+    const uint8_t len = strlen(calc);
 
-    Token tokens[len];
+    Token *tokens = malloc(sizeof(Token) * len);
+    if (!tokens) {
+        printf("malloc failed on tokens, quitting...\n");
+        return true;
+    }
     int tokens_pos = 0;
 
-    char buffer[len];
+    char *buffer = malloc(sizeof(char) * len);
+    if (!buffer) {
+        printf("malloc failed on buffer, quitting...\n");
+        return true;
+    }
     int buffer_pos = 0;
+
     for (int i = 0; i < len; i++) {
         char current = calc[i];
 
         if (is_operator_char(current)) {
             if (!flush_and_append(buffer, &buffer_pos, tokens, &tokens_pos)) {
                 free(calc);
+                free(tokens);
+                free(buffer);
                 return false;
             }
 
@@ -42,21 +54,29 @@ bool parse(const char *in, double *out) {
             buffer[buffer_pos++] = current;
         } else {
             free(calc);
+            free(tokens);
+            free(buffer);
             return false;
         }
     }
 
     free(calc);
     if (!flush_and_append(buffer, &buffer_pos, tokens, &tokens_pos)) {
+        free(tokens);
+        free(buffer);
         return false;
     }
 
+    free(buffer);
+
     double result;
     if (!token_result(tokens, tokens_pos, &result)) {
+        free(tokens);
         return false;
     }
 
     *out = result;
+    free(tokens);
 
     return true;
 }

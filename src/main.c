@@ -1,6 +1,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "parser/parser.h"
@@ -56,15 +57,22 @@ bool should_quit(const char* input) {
         return false;
     }
 
-    char in[strlen(input) + 1];
+    char *in = malloc(strlen(input) + 1 * sizeof(char));
+    if (!in) {
+        printf("malloc failed, quitting...\n");
+        return true;
+    }
+
     strcpy(in, input);
     string_to_upper(in);
 
     if (strcmp(in, "QUIT") == 0 || strcmp(in, "Q") == 0) {
         printf("Quitting...\n");
+        free(in);
         return true;
     }
 
+    free(in);
     return false;
 }
 
