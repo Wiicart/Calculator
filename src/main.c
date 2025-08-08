@@ -81,7 +81,12 @@ bool helping(const char* input) {
         return false;
     }
 
-    char in[strlen(input) + 1];
+    char *in = malloc(strlen(input) + 1 * sizeof(char));
+    if (!in) {
+        printf("malloc failed, quitting...\n");
+        return true;
+    }
+
     strcpy(in, input);
     string_to_upper(in);
 
@@ -89,8 +94,10 @@ bool helping(const char* input) {
         printf("Type a valid equation using numbers, and any of the operators:\n");
         printf("*, /, +, -,\n");
         printf("Type QUIT to quit.\n");
+        free(in);
         return true;
     }
 
+    free(in);
     return false;
 }
