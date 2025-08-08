@@ -20,7 +20,12 @@ bool is_operator_char(const char in);
 bool parse(const char *in, double *out) {
     char *calc = remove_spaces(in);
 
-    const uint8_t len = strlen(calc);
+    size_t len = strlen(calc);
+    if (len == 0) {
+        free(calc);
+        return false;
+    }
+
 
     Token *tokens = malloc(sizeof(Token) * len);
     if (!tokens) {
