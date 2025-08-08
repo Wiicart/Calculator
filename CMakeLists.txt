@@ -3,10 +3,20 @@ project(Calculator C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Calculator src/main.c
+add_executable(Calculator
+        src/main.c
         src/parser/parser.h
         src/parser/parser.c
         src/context/calculation_context.h
         src/context/calculation_context.c
         src/token/token.h
-        src/token/token.c)
+        src/token/token.c
+)
+
+if (UNIX AND NOT APPLE)
+    target_link_libraries(Calculator m)
+endif()
+
+if (MINGW)
+    target_link_libraries(Calculator m)
+endif()
